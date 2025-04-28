@@ -1,6 +1,6 @@
 export async function getNaves(page = 1) {
     try {
-      const response = await fetch(`https://www.swapi.tech/api/starships?page=${page}&limit=10`);
+      const response = await fetch(`https://www.swapi.tech/api/starships?page=${page}&limit=8`);
       if (!response.ok) {
         throw new Error('Error al obtener la lista de naves');
       }

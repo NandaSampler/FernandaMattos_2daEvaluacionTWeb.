@@ -1,6 +1,6 @@
 <template>
     <footer class="footer">
-      <p>© 2025 SWAPI Naves. Todos los derechos reservados.</p>
+      <p>© 2025 SWAPI Naves. Todos los derechos reservados. Fernanda Mattos Terán</p>
     </footer>
   </template>
   
