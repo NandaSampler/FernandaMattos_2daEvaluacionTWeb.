@@ -60,6 +60,10 @@
           this.naves = data.naves;
           this.nextPage = data.nextPage;
           this.previousPage = data.previousPage;
+
+          if (this.page >= 3) {
+            this.nextPage = null;
+          }
         } catch (err) {
           this.error = err.message;
         } finally {
@@ -67,7 +71,7 @@
         }
       },
       nextPageFunc() {
-        if (this.nextPage) {
+        if (this.nextPage && this.page < 3) { 
           this.page = this.nextPage;
           this.fetchNaves();
         }
@@ -82,14 +86,13 @@
   }
   </script>
   
+  
   <style scoped>
-  /* Contenedor principal */
   .naves-container {
     text-align: center;
     padding: 2rem;
   }
   
-  /* Título */
   h1 {
     font-size: 3.2em;
     line-height: 1.1;
@@ -100,7 +103,6 @@
     opacity: 0;
   }
   
-  /* Animación de entrada */
   @keyframes aparecer {
     0% {
       opacity: 0;
@@ -112,7 +114,7 @@
     }
   }
   
-  /* Animación de glow */
+
   @keyframes glow {
     from {
       text-shadow: 0 0 5px #2939b4, 0 0 10px #2939b4, 0 0 15px #2939b4;
@@ -122,7 +124,6 @@
     }
   }
   
-  /* Loader de carga */
   .cargando-contenedor {
     display: flex;
     flex-direction: column;
@@ -154,8 +155,7 @@
     color: yellow;
     text-align: center;
   }
-  
-  /* Tarjetas de naves */
+
   .cards-container {
     display: flex;
     flex-wrap: wrap;
@@ -164,7 +164,6 @@
     margin-top: 2rem;
   }
   
-  /* Info de paginación */
   .pagination-info {
     margin-top: 1.5rem;
     margin-bottom: 1rem;
@@ -172,7 +171,6 @@
     color: #fff;
   }
   
-  /* Botones de paginación */
   .paginacion {
     display: flex;
     justify-content: center;
@@ -180,7 +178,6 @@
     margin-top: 2rem;
   }
   
-  /* Errores */
   .error {
     margin-top: 2rem;
     font-size: 1.2rem;

@@ -3,7 +3,7 @@
       <h1>Bienvenido al mundo de Star Wars</h1>
       <img src="/src/assets/homeHalcon.png" alt="Halcón Milenario" class="imagen-halcon" />
       <p>Explora las naves espaciales más icónicas de la galaxia.</p>
-      <p class="frase-galaxia">Que la fuerza te acompañe en tu viaje 🚀</p>
+      <p class="frase-galaxia">Que la fuerza te acompañe en tu viaje </p>
       <router-link to="/naves">
         <button class="boton-galaxia">Explorar Naves</button>
       </router-link>
