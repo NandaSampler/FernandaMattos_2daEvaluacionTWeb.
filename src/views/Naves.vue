@@ -1,125 +1,190 @@
 <template>
     <div class="naves-container">
-        <h1>Naves Espaciales</h1>
-
-        <div v-if="loading" class="loading">Cargando naves...</div>
-
-        <div v-else class="cards-container">
-            <CardNave v-for="nave in naves" :key="nave.name" :nave="nave" />
+      <h1>Naves Espaciales</h1>
+  
+      <div v-if="loading" class="cargando-contenedor">
+        <div class="loader"></div>
+        <p class="texto-cargando">Cargando naves...</p>
+      </div>
+  
+      <div v-else>
+        <div class="cards-container">
+          <CardNave v-for="nave in naves" :key="nave.name" :nave="nave" />
         </div>
-
+  
         <div class="pagination-info">
-            <p>Página {{ page }}</p>
+          <p>Página {{ page }}</p>
         </div>
-
-        <div class="pagination">
-            <button @click="prevPage" :disabled="!previousPage">Anterior</button>
-            <button @click="nextPageFunc" :disabled="!nextPage">Siguiente</button>
+  
+        <div class="paginacion">
+          <button v-if="previousPage" @click="prevPage" class="boton-secundario">
+            Anterior
+          </button>
+          <button v-if="nextPage" @click="nextPageFunc" class="boton-secundario">
+            Siguiente
+          </button>
         </div>
-
-        <div v-if="error" class="error">{{ error }}</div>
+      </div>
+  
+      <div v-if="error" class="error">{{ error }}</div>
     </div>
-</template>
-
-<script>
-import CardNave from '../components/CardNave.vue'
-import { getNaves } from '../services/swapi'
-
-export default {
+  </template>
+  
+  <script>
+  import CardNave from '../components/CardNave.vue'
+  import { getNaves } from '../services/swapi'
+  
+  export default {
     name: 'Naves',
     components: {
-        CardNave
+      CardNave
     },
     data() {
-        return {
-            naves: [],
-            loading: true,
-            error: null,
-            page: 1,
-            nextPage: null,
-            previousPage: null
-        }
+      return {
+        naves: [],
+        loading: true,
+        error: null,
+        page: 1,
+        nextPage: null,
+        previousPage: null
+      }
     },
     mounted() {
-        this.fetchNaves()
+      this.fetchNaves()
     },
     methods: {
-        async fetchNaves() {
-            this.loading = true;
-            try {
-                const data = await getNaves(this.page);
-                this.naves = data.naves;
-                this.nextPage = data.nextPage;
-                this.previousPage = data.previousPage;
-            } catch (err) {
-                this.error = err.message;
-            } finally {
-                this.loading = false;
-            }
-        },
-        nextPageFunc() {
-            if (this.nextPage) {
-                this.page = this.nextPage;
-                this.fetchNaves();
-            }
-        },
-        prevPage() {
-            if (this.previousPage) {
-                this.page = this.previousPage;
-                this.fetchNaves();
-            }
+      async fetchNaves() {
+        this.loading = true;
+        try {
+          const data = await getNaves(this.page);
+          this.naves = data.naves;
+          this.nextPage = data.nextPage;
+          this.previousPage = data.previousPage;
+        } catch (err) {
+          this.error = err.message;
+        } finally {
+          this.loading = false;
         }
+      },
+      nextPageFunc() {
+        if (this.nextPage) {
+          this.page = this.nextPage;
+          this.fetchNaves();
+        }
+      },
+      prevPage() {
+        if (this.previousPage) {
+          this.page = this.previousPage;
+          this.fetchNaves();
+        }
+      }
     }
-}
-</script>
-
-<style scoped>
-
-.pagination-info {
-  margin-top: 1.5rem;
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
-  color: #fff;
-}
-
-.naves-container {
+  }
+  </script>
+  
+  <style scoped>
+  /* Contenedor principal */
+  .naves-container {
     text-align: center;
     padding: 2rem;
-}
-
-.cards-container {
+  }
+  
+  /* Título */
+  h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+    color: #ffffff;
+    text-shadow: 0 0 10px #00a6ffc8, 0 0 20px #00a6ffc8, 0 0 30px #00a6ffc8;
+    animation: aparecer 1.5s ease forwards, glow 2s infinite alternate;
+    margin-bottom: 2rem;
+    opacity: 0;
+  }
+  
+  /* Animación de entrada */
+  @keyframes aparecer {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Animación de glow */
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 5px #2939b4, 0 0 10px #2939b4, 0 0 15px #2939b4;
+    }
+    to {
+      text-shadow: 0 0 20px #2939b4, 0 0 30px #2939b4, 0 0 40px #2939b4;
+    }
+  }
+  
+  /* Loader de carga */
+  .cargando-contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+  }
+  
+  .loader {
+    border: 6px solid rgba(255, 255, 0, 0.2);
+    border-top: 6px solid #ffd700;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: girar 1s linear infinite;
+  }
+  
+  @keyframes girar {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .texto-cargando {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    color: yellow;
+    text-align: center;
+  }
+  
+  /* Tarjetas de naves */
+  .cards-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 2rem;
     margin-top: 2rem;
-}
-
-.pagination {
+  }
+  
+  /* Info de paginación */
+  .pagination-info {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    color: #fff;
+  }
+  
+  /* Botones de paginación */
+  .paginacion {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
     margin-top: 2rem;
-}
-
-.pagination button {
-    margin: 0 1rem;
-    padding: 10px 20px;
-    font-size: 1rem;
-    background-color: #0077ff;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.pagination button:disabled {
-    background-color: #555;
-    cursor: not-allowed;
-}
-
-.loading,
-.error {
+  }
+  
+  /* Errores */
+  .error {
     margin-top: 2rem;
     font-size: 1.2rem;
     color: yellow;
-}
-</style>
+  }
+  </style>
+  

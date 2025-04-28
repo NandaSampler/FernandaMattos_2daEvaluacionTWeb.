@@ -29,19 +29,34 @@ export default {
   }
 }
 </script>
-
 <style scoped>
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .card {
-  background-color: #333;
-  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   overflow: hidden;
   width: 300px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
+  transition: all 0.4s ease;
+  animation: fadeIn 1s ease forwards; /* 🎯 Aquí aplicamos la animación */
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(255, 255, 255, 0.3);
 }
 
 .card-img {
@@ -65,3 +80,4 @@ export default {
   margin: 0.3rem 0;
 }
 </style>
+

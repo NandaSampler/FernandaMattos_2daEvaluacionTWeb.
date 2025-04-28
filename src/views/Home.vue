@@ -1,9 +1,10 @@
 <template>
     <div class="home-container">
-      <h1>Bienvenido al Universo de Star Wars</h1>
+      <h1>Bienvenido al mundo de Star Wars</h1>
       <p>Explora las naves espaciales más icónicas de la galaxia.</p>
+      <p class="frase-galaxia">Que la fuerza te acompañe en tu viaje 🚀</p>
       <router-link to="/naves">
-        <button class="explore-button">Explorar Naves</button>
+        <button class="boton-galaxia">Explorar Naves</button>
       </router-link>
     </div>
   </template>
@@ -14,7 +15,7 @@
   }
   </script>
   
-  <style scoped>
+  <style>
   .home-container {
     display: flex;
     flex-direction: column;
@@ -40,5 +41,35 @@
   .explore-button:hover {
     background-color: #0055aa;
   }
+
+  h1 {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: aparecer 5.5s ease forwards;
+}
+
+
+
+@keyframes aparecer {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+p {
+  opacity: 0;
+  animation: aparecer 1.5s ease forwards;
+  animation-delay: 1s;
+}   
+.frase-galaxia {
+  margin-top: 1.5rem;
+  color: #ffd700;
+  font-style: italic;
+  animation: aparecer 2s ease forwards;
+  animation-delay: 2s;
+}
+
+
   </style>
   
