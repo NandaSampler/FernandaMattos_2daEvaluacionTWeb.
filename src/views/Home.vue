@@ -2,7 +2,6 @@
     <div class="home-container">
       <h1>Bienvenido al mundo de Star Wars</h1>
       <img src="/src/assets/homeHalcon.png" alt="Halcón Milenario" class="imagen-halcon" />
-      <p>Explora las naves espaciales más icónicas de la galaxia.</p>
       <p class="frase-galaxia">Que la fuerza te acompañe en tu viaje </p>
       <router-link to="/naves">
         <button class="boton-galaxia">Explorar Naves</button>
@@ -103,5 +102,21 @@
   .boton-galaxia:active {
     transform: scale(0.98);
   }
+
+  @media (max-width: 768px) {
+  .home-container h1 {
+    font-size: 1.8rem;
+  }
+
+  .boton-galaxia {
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .imagen-halcon {
+    width: 80%;
+  }
+}
+
   </style>
   

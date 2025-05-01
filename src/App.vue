@@ -40,4 +40,19 @@ main {
   flex: 1;
   padding-top: 90px;
 }
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 </style>

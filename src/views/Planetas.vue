@@ -1,21 +1,39 @@
 <template>
-    <div class="planetas-container">
-      <h1>Planetas del universo Star Wars</h1>
-      <CarruselPlaneta :planetas="planetas" />
+  <div class="planetas-container">
+    <h1>Planetas del universo Star Wars</h1>
+
+    <div v-if="loading" class="cargando-contenedor">
+      <div class="loader"></div>
+      <p class="texto-cargando">Cargando planetas...</p>
     </div>
-  </template>
+
+    <div v-else>
+      <CarruselPlaneta />
+    </div>
+
+    <div v-if="error" class="error">{{ error }}</div>
+  </div>
+</template>
   
-  <script>
+<script>
 import CarruselPlaneta from '../components/CarruselPlaneta.vue'
 
-  
-  export default {
-    name: 'Planeta',
-    components: {
-  CarruselPlaneta
-}
+export default {
+  name: 'Planeta',
+  components: { CarruselPlaneta },
+  data() {
+    return {
+      loading: true,
+      error: null
+    }
+  },
+  mounted() {
+    setTimeout(() => {
+      this.loading = false;
+    }, 1000);
   }
-  </script>
+}
+</script>
   
   <style scoped>
   .planetas-container {
@@ -52,5 +70,7 @@ import CarruselPlaneta from '../components/CarruselPlaneta.vue'
     text-shadow: 0 0 20px #2939b4, 0 0 30px #2939b4, 0 0 40px #2939b4;
   }
 }
+
+
   </style>
   

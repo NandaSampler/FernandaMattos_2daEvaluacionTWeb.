@@ -215,3 +215,53 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .card {
+    width: 90%;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .boton-galaxia,
+  .boton-secundario {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .carrusel-container {
+    flex-direction: column;
+  }
+
+  .carrusel {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar .nav-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar .nav-links {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .paginacion {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .card-front img {
+    width: 100%;
+    height: auto;
+    max-height: 180px;
+    object-fit: cover;
+  }
+}
+

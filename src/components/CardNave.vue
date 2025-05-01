@@ -151,4 +151,11 @@ export default {
   font-size: 1rem;
   margin: 0.5rem 0;
 }
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
 </style>

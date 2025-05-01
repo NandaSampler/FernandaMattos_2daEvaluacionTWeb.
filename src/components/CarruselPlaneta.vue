@@ -80,44 +80,46 @@ export default {
 
 <style scoped>
 .carrusel-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    margin: 2rem auto;
-    overflow-x: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem auto;
+  overflow-x: auto;
+  flex-wrap: wrap;
 }
 
 .flecha {
-    background: #111;
-    color: yellow;
-    border: none;
-    font-size: 2rem;
-    cursor: pointer;
+  background: #111;
+  color: yellow;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
 }
 
 .carrusel {
-    display: flex;
-    gap: 1rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: nowrap;
 }
 
 .card {
-    width: 200px;
-    height: 260px;
-    perspective: 1000px;
-    cursor: pointer;
+  width: 380px;
+  height: 420px;
+  perspective: 1000px;
+  cursor: pointer;
 }
 
 .card-inner {
-    width: 100%;
-    height: 100%;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-    position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  position: relative;
 }
 
 .card.flipped .card-inner {
-    transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
 .card-front,
@@ -128,7 +130,7 @@ export default {
   backface-visibility: hidden;
   background: rgba(255, 255, 255, 0.08);
   color: white;
-  border-radius: 12px;
+  border-radius: 14px;
   padding: 1rem;
   text-align: center;
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
@@ -137,20 +139,51 @@ export default {
 
 .card-front img {
   width: 100%;
-  height: 200px; 
+  height: 270px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 10px;
 }
 
 .card-front h3 {
   margin-top: 0.5rem;
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: #ffd700;
   text-shadow: 0 0 3px black;
   font-weight: normal;
 }
 
 .card-back {
-    transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+/* Responsive tablets */
+@media (max-width: 768px) {
+  .card {
+    width: 220px;
+    height: 300px;
+  }
+
+  .card-front img {
+    height: 200px;
+  }
+}
+
+/* Responsive móviles */
+@media (max-width: 480px) {
+  .card {
+    width: 180px;
+    height: 260px;
+  }
+
+  .card-front img {
+    height: 160px;
+  }
+
+  .carrusel-container {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 </style>
+
+
