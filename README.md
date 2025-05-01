@@ -1,5 +1,80 @@
-# Vue 3 + Vite
+# 🌌 Swapi Naves
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Aplicación web interactiva que permite explorar **naves espaciales** y **planetas** del universo Star Wars, utilizando la API de [SWAPI.tech](https://www.swapi.tech/). Desarrollada con **Vue 3 + Vite**, incluye navegación, animaciones, diseño responsive, carrusel interactivo y efectos personalizados.
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+---
+
+## 🚀 Características
+
+- 🛰️ Vista de **naves** con tarjetas giratorias y paginación (9 por página, hasta 3 páginas).
+- 🪐 **Carrusel de planetas** interactivo, con animación de giro para mostrar detalles.
+- 📱 Diseño completamente **responsive** .
+- ⚡ Navbar fijo con enlaces y menú adaptativo.
+- 🌀 Indicadores de carga.
+
+---
+
+## 📦 Instalación
+
+1. **Clona el repositorio**:
+
+```bash
+git clone https://github.com/tu-usuario/swapi-naves.git
+cd swapi-naves
+
+2. **Instala las dependencias**:
+
+```bash
+npm install
+```
+
+---
+
+## 🛠️ Uso
+
+1. **Ejecuta el servidor de desarrollo**:
+
+```bash
+npm run dev
+```
+
+2. Abrir el navegador en:
+
+```
+http://localhost:5173
+```
+
+---
+
+## 📁 Estructura del proyecto
+
+```
+├── public/
+│   └── icono personalizado
+├── src/
+│   ├── assets/         → Imágenes de naves y planetas
+│   ├── components/     → Carrusel, tarjetas, navbar y footer
+│   ├── views/          → Home, Naves, Planetas
+│   ├── router/         → Vue Router
+│   ├── services/       → Llamadas a SWAPI
+│   └── App.vue
+├── package.json
+├── vite.config.js
+└── README.md
+```
+
+---
+
+## 🌐 Tecnologías
+
+- [Vue 3](https://vuejs.org/)
+- [Vite](https://vitejs.dev/)
+- [SWAPI.tech](https://www.swapi.tech/)
+- CSS3, Flexbox, Animaciones
+
+---
+
+---
+
+
+---
