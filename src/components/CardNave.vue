@@ -2,13 +2,11 @@
   <div class="card" @click="flipped = !flipped">
     <div class="card-inner" :class="{ flipped: flipped }">
       
-      <!-- Cara frontal -->
       <div class="card-front">
         <img :src="imagenUrl" alt="Imagen de la Nave" class="card-img" />
         <h2 class="card-title">{{ nave.name }}</h2>
       </div>
 
-      <!-- Cara trasera -->
       <div class="card-back">
         <h2>{{ nave.name }}</h2>
         <p><strong>Modelo:</strong> {{ nave.model }}</p>
@@ -81,7 +79,6 @@ export default {
   animation: fadeIn 1s ease forwards;
 }
 
-/* Animación de aparición */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -101,7 +98,6 @@ export default {
   transform-style: preserve-3d;
 }
 
-/* Al hacer click o hover, giramos */
 .card:hover .card-inner,
 .card-inner.flipped {
   transform: rotateY(180deg) scale(1.03);
@@ -127,7 +123,7 @@ export default {
   color: white;
 }
 
-/* Frente */
+
 .card-front img {
   width: 100%;
   height: 70%;
@@ -139,7 +135,7 @@ export default {
   font-size: 1.5rem;
 }
 
-/* Atrás */
+
 .card-back {
   transform: rotateY(180deg);
   padding: 1rem;

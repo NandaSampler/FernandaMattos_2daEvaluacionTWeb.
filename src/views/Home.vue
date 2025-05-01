@@ -25,7 +25,7 @@
     height: 90vh;
     text-align: center;
     padding: 1rem;
-    gap: 0.8rem; /* 👈 Añadimos gap controlado */
+    gap: 0.8rem; 
   }
   
   h1 {
@@ -34,9 +34,9 @@
     animation: aparecer 5.5s ease forwards;
   }
   
-  /* Imagen del Halcón */
+¿
   .imagen-halcon {
-    width: 450px; /* 👈 Más grande */
+    width: 450px;
     height: auto;
     animation: flotar 3s ease-in-out infinite alternate;
   }
@@ -50,18 +50,17 @@
     }
   }
   
-  /* Párrafos */
   p {
     max-width: 600px;
     font-size: 1.5rem;
     font-weight: 400;
-    line-height: 1.6; /* 👈 Menos separación entre líneas */
+    line-height: 1.6; 
     color: #e0e0e0;
     text-align: center;
     opacity: 0;
     animation: aparecer 1.5s ease forwards;
     animation-delay: 1s;
-    margin: 0.5rem 0; /* 👈 Menos espacio arriba/abajo */
+    margin: 0.5rem 0; 
   }
   
   .frase-galaxia {
@@ -72,7 +71,7 @@
     animation-delay: 2s;
   }
   
-  /* Animación de aparición */
+
   @keyframes aparecer {
     to {
       opacity: 1;
@@ -80,9 +79,9 @@
     }
   }
   
-  /* Botón */
+
   .boton-galaxia {
-    margin-top: 1rem; /* 👈 Un poco de aire antes del botón */
+    margin-top: 1rem; 
     padding: 10px 20px;
     font-size: 1.2rem;
     background: linear-gradient(90deg, #00f0ff, #0077ff);

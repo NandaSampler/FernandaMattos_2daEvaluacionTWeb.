@@ -1,12 +1,13 @@
 <template>
   <nav class="navbar">
-    <div class="nav-content"> <!-- 🚀 Nuevo contenedor -->
+    <div class="nav-content"> 
       <div class="nav-logo">
         <router-link to="/">Swapi Naves</router-link>
       </div>
       <ul class="nav-links">
         <li><router-link to="/">Inicio</router-link></li>
         <li><router-link to="/naves">Naves</router-link></li>
+        <li><router-link to="/planetas">Planetas</router-link></li>
       </ul>
     </div>
   </nav>
@@ -29,7 +30,7 @@ top: 0;
 z-index: 1000;
 }
 
-/* 🚀 Nuevo: centramos el contenido */
+
 .nav-content {
 max-width: 1200px;
 margin: 0 auto;
